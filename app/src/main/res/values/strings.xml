@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">assignment3</string>
+    <string name="input_1">input 1</string>
+    <string name="input_2">input 2</string>
+    <string name="add">add</string>
+    <string name="subtract">subtract</string>
+    <string name="multiply">multiply</string>
+    <string name="divide">divide</string>
+    <string name="mvp">MVP</string>
+    <string name="mvvm">MVVM</string>
 </resources>
