@@ -10,14 +10,14 @@
         android:layout_height="50sp"
         android:id="@+id/input1"
         android:hint="@string/input_1"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:id="@+id/input2"
         android:hint="@string/input_2"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
 
     <TextView
         android:layout_width="match_parent"

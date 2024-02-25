@@ -14,6 +14,12 @@ class MVPFragment: Fragment(R.layout.calculator_layout), Contract.View {
     private var _binding: CalculatorLayoutBinding? = null
     private val binding get() = _binding!!
 
+    private var presenter: Contract.Presenter? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter = Presenter(this, Model())
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,6 +27,29 @@ class MVPFragment: Fragment(R.layout.calculator_layout), Contract.View {
     ): View? {
         _binding = CalculatorLayoutBinding.inflate(inflater, container, false)
         val view = binding.root
+        binding.add.setOnClickListener {
+            presenter!!.onButtonClick("add", binding.input1.text.toString(), binding.input2.text.toString())
+            setInputOne("")
+            setInputTwo("")
+        }
+
+        binding.subtract.setOnClickListener {
+            presenter!!.onButtonClick("subtract", binding.input1.text.toString(), binding.input2.text.toString())
+            setInputOne("")
+            setInputTwo("")
+        }
+
+        binding.multiply.setOnClickListener {
+            presenter!!.onButtonClick("multiply", binding.input1.text.toString(), binding.input2.text.toString())
+            setInputOne("")
+            setInputTwo("")
+        }
+
+        binding.divide.setOnClickListener {
+            presenter!!.onButtonClick("divide", binding.input1.text.toString(), binding.input2.text.toString())
+            setInputOne("")
+            setInputTwo("")
+        }
         return view
     }
 

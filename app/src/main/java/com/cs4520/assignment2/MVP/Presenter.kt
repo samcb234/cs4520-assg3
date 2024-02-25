@@ -1,7 +1,7 @@
 package com.cs4520.assignment2.MVP
 
 class Presenter(private var view: Contract.View?, private var model: Contract.Model): Contract.Presenter{
-    override fun onButtonClick(operation: String, val1: Double?, val2: Double?) {
+    override fun onButtonClick(operation: String, val1: String, val2: String) {
         var out: Double? = null
 
         when(operation){

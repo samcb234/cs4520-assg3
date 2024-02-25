@@ -9,14 +9,14 @@ public interface Contract {
     }
 
     interface Model{
-        fun add(val1: Double?, val2: Double?) : Double?
-        fun subtract(val1: Double?, val2: Double?) : Double?
-        fun multiply(val1: Double?, val2: Double?) : Double?
-        fun divide(val1: Double?, val2: Double?) : Double?
+        fun add(val1: String?, val2: String?) : Double?
+        fun subtract(val1: String?, val2: String?) : Double?
+        fun multiply(val1: String?, val2: String?) : Double?
+        fun divide(val1: String?, val2: String?) : Double?
     }
 
     interface Presenter {
-        fun onButtonClick(operation: String, val1: Double?, val2: Double?)
+        fun onButtonClick(operation: String, val1: String, val2: String)
         fun onDestroy()
     }
 }
