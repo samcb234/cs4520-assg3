@@ -11,10 +11,17 @@
         tools:layout="@layout/home_layout">
         <action android:id="@+id/action_navigate_to_mvp_calc"
             app:destination="@+id/mvpFragment"/>
+        <action android:id="@+id/action_navigate_to_mvvm_calc"
+            app:destination="@+id/mvvmFragment"/>
     </fragment>
 
     <fragment android:id="@+id/mvpFragment"
         android:name="com.cs4520.assignment2.MVP.MVPFragment"
         android:label="MVPFragment"
+        tools:layout="@layout/calculator_layout"/>
+
+    <fragment android:id="@+id/mvvmFragment"
+        android:name="com.cs4520.assignment2.MVVM.MVVMFragment"
+        android:label="MVVMFragment"
         tools:layout="@layout/calculator_layout"/>
 </navigation>

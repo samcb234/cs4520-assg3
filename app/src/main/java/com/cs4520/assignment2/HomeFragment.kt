@@ -24,6 +24,10 @@ class HomeFragment: Fragment(R.layout.home_layout) {
         binding.mvp.setOnClickListener({
             findNavController().navigate(R.id.action_navigate_to_mvp_calc)
         })
+
+        binding.mvvm.setOnClickListener({
+            findNavController().navigate(R.id.action_navigate_to_mvvm_calc)
+        })
         return view
     }
 }
