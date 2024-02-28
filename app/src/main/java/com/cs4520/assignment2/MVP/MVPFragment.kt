@@ -1,5 +1,6 @@
 package com.cs4520.assignment2.MVP
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +51,7 @@ class MVPFragment: Fragment(R.layout.calculator_layout), Contract.View {
             setInputOne("")
             setInputTwo("")
         }
+        binding.root.setBackgroundColor(Color.parseColor("#c4b8e1"))
         return view
     }
 
@@ -67,7 +69,7 @@ class MVPFragment: Fragment(R.layout.calculator_layout), Contract.View {
     }
 
     override fun setResult(string: Double) {
-        binding.result.setText(string.toString())
+        binding.result.text = string.toString()
     }
 
     override fun displayErrorMessage() {

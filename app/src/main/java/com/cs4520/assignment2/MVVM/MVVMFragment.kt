@@ -1,5 +1,6 @@
 package com.cs4520.assignment2.MVVM
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,6 +44,7 @@ class MVVMFragment: Fragment(R.layout.calculator_layout) {
             viewModel.executeCommand("divide", binding.input1.text.toString(), binding.input2.text.toString())
             resetInput()
         }
+        binding.root.setBackgroundColor(Color.parseColor("#ffb3ba"))
         observeError()
         observeResult()
         return view
