@@ -1,8 +1,11 @@
 package com.cs4520.assignment2.MVP
 
-class Presenter(private var view: Contract.View?, private var model: Contract.Model): Contract.Presenter{
+import com.cs4520.assignment2.Model
+import com.cs4520.assignment2.OperationResult
+
+class Presenter(private var view: Contract.View?, private var model: Model): Contract.Presenter{
     override fun onButtonClick(operation: String, val1: String, val2: String) {
-        var out: Double? = null
+        var out: OperationResult? = null
 
         when(operation){
             "add" -> out = model.add(val1, val2)
@@ -11,11 +14,11 @@ class Presenter(private var view: Contract.View?, private var model: Contract.Mo
             "divide" -> out = model.divide(val1, val2)
         }
 
-        if(out == null){
-            view!!.displayErrorMessage()
+        if(out!!.errorMessage != null){
+            view!!.displayErrorMessage(out.errorMessage!!)
         }
         else{
-            view!!.setResult(out)
+            view!!.setResult(out.result!!)
         }
     }
 

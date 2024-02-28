@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.cs4520.assignment2.OperationResult
 import com.cs4520.assignment3.R
 import com.cs4520.assignment3.databinding.CalculatorLayoutBinding
 
@@ -45,28 +46,26 @@ class MVVMFragment: Fragment(R.layout.calculator_layout) {
             resetInput()
         }
         binding.root.setBackgroundColor(Color.parseColor("#ffb3ba"))
-        observeError()
         observeResult()
         return view
     }
 
     private fun observeResult(){
         viewModel.result.observe(viewLifecycleOwner) {
-            result -> binding.result.text = result
+            result -> handleResult(result)
         }
     }
 
-    private fun observeError(){
-        viewModel.error.observe(viewLifecycleOwner){
-            e ->
-            if(!e){
-                val toast = Toast.makeText(context, "Please enter two numbers", Toast.LENGTH_SHORT)
-                toast.show()
-                resetInput()
-            }
+    private fun handleResult(result: OperationResult){
+        if(result.result != null){
+            binding.result.text = result.result.toString()
+        }
+        if(result.errorMessage != null){
+            binding.result.text = ""
+            val toast = Toast.makeText(context, result.errorMessage, Toast.LENGTH_SHORT)
+            toast.show()
         }
     }
-
     private fun resetInput(){
         binding.input1.setText("")
         binding.input2.setText("")

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.cs4520.assignment2.Model
 import com.cs4520.assignment3.R
 import com.cs4520.assignment3.databinding.CalculatorLayoutBinding
 
@@ -72,10 +73,11 @@ class MVPFragment: Fragment(R.layout.calculator_layout), Contract.View {
         binding.result.text = string.toString()
     }
 
-    override fun displayErrorMessage() {
-        val toast = Toast.makeText(context, "Please enter two numbers", Toast.LENGTH_SHORT)
+    override fun displayErrorMessage(message: String) {
+        val toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
         toast.show()
         setInputOne("")
         setInputTwo("")
+        binding.result.text = ""
     }
 }

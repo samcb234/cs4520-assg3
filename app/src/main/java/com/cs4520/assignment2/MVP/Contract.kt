@@ -1,18 +1,20 @@
 package com.cs4520.assignment2.MVP
 
+import com.cs4520.assignment2.OperationResult
+
 public interface Contract {
     interface View {
         fun setInputOne(string: String)
         fun setInputTwo(string: String)
         fun setResult(string: Double)
-        fun displayErrorMessage()
+        fun displayErrorMessage(message: String)
     }
 
     interface Model{
-        fun add(val1: String?, val2: String?) : Double?
-        fun subtract(val1: String?, val2: String?) : Double?
-        fun multiply(val1: String?, val2: String?) : Double?
-        fun divide(val1: String?, val2: String?) : Double?
+        fun add(val1: String?, val2: String?) : OperationResult
+        fun subtract(val1: String?, val2: String?) : OperationResult
+        fun multiply(val1: String?, val2: String?) : OperationResult
+        fun divide(val1: String?, val2: String?) : OperationResult
     }
 
     interface Presenter {
